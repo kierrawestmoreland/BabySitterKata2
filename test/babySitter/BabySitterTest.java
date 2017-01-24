@@ -13,6 +13,13 @@ public class BabySitterTest {
 		assertTrue(babySitter.getStartTime() >= babySitter.getStartTimeLimit());
 	}
 	
+	@Test
+	public void endNoLaterThan4am(){
+		BabySitter babySitter = new BabySitter();
+		babySitter.setEndTime(24);
+		assertTrue(babySitter.getEndTime() <= babySitter.getEndTimeLimit());
+	}
+	
 	
 
 }
