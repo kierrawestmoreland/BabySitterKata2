@@ -2,22 +2,33 @@ package babySitter;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BabySitterTest {
 
+	private BabySitter babySitter;
+	
+	@Before
+	public void setUpForTests(){
+		babySitter = new BabySitter();
+		babySitter.setStartTime(18);
+		babySitter.setEndTime(24);
+	}
+	
 	@Test
 	public void startNoEarlierThan5pm(){
-		BabySitter babySitter = new BabySitter();
-		babySitter.setStartTime(18);
 		assertTrue(babySitter.getStartTime() >= babySitter.getStartTimeLimit());
 	}
 	
 	@Test
 	public void endNoLaterThan4am(){
-		BabySitter babySitter = new BabySitter();
-		babySitter.setEndTime(24);
 		assertTrue(babySitter.getEndTime() <= babySitter.getEndTimeLimit());
+	}
+	
+	@Test
+	public void endTimeCannotBeBeforeStartTime(){
+		assertTrue(babySitter.verifyEndAfterStartTime());
 	}
 	
 	

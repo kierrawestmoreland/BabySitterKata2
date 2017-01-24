@@ -31,4 +31,12 @@ public class BabySitter {
 		return endTimeLimit;
 	}
 
+	public boolean verifyEndAfterStartTime() {
+		if(getStartTime() < getEndTime()){
+			return true;
+		}else{
+		return false;
+		}
+	}
+
 }
