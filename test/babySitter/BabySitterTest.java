@@ -35,5 +35,12 @@ public class BabySitterTest {
 	public void verifyStartAndEndTimeAreWithinLimits(){
 		assertTrue(babySitter.verifyBabySittingWithinLimits());
 	}
+	
+	@Test
+	public void enteredTimeIsConverted(){
+		babySitter.setStartTime(6);
+		int startTimeTest = babySitter.getStartTime();
+		assertTrue(startTimeTest == 18);
+	}
 
 }

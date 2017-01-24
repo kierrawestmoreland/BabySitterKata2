@@ -6,7 +6,7 @@ public class BabySitter {
 	private int endTime;
 	
 	public void setStartTime(int startTime) {
-		this.startTime = startTime;
+		this.startTime = convertStartTime(startTime);
 	}
 
 	public int getStartTime() {
@@ -47,6 +47,16 @@ public class BabySitter {
 			System.out.println("I won't be able to work those hours since they are out of the allowed range.");
 			return false;
 		}
+	}
+	
+	public int convertStartTime(int startTime){
+
+		if(startTime < 13 && startTime > 4){
+			startTime = startTime + 12;
+		}else{
+			startTime = startTime + 24;
+		}
+		return startTime;
 	}
 
 }
