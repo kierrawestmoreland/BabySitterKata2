@@ -27,10 +27,13 @@ public class BabySitterTest {
 	}
 	
 	@Test
-	public void endTimeCannotBeBeforeStartTime(){
+	public void verifyEndTimeIsAfterStartTime(){
 		assertTrue(babySitter.verifyEndAfterStartTime());
 	}
 	
-	
+	@Test
+	public void verifyStartAndEndTimeAreWithinLimits(){
+		assertTrue(babySitter.verifyBabySittingWithinLimits());
+	}
 
 }

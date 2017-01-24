@@ -35,7 +35,17 @@ public class BabySitter {
 		if(getStartTime() < getEndTime()){
 			return true;
 		}else{
-		return false;
+			return false;
+		}
+	}
+
+	public boolean verifyBabySittingWithinLimits() {
+		if((getStartTime() >= getStartTimeLimit()) && (getEndTime() <= getEndTimeLimit())){
+			System.out.println("I can work those hours.");
+			return true;
+		}else{
+			System.out.println("I won't be able to work those hours since they are out of the allowed range.");
+			return false;
 		}
 	}
 
