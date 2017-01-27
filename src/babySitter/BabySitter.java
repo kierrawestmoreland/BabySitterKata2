@@ -2,8 +2,8 @@ package babySitter;
 
 public class BabySitter {
 
-	private int startTime;
 	private int endTime;
+	private int startTime;
 	
 	public void setStartTime(int startTime) {
 		this.startTime = convertStartTime(startTime);
@@ -19,7 +19,7 @@ public class BabySitter {
 	}
 
 	public void setEndTime(int endTime) {
-		this.endTime = endTime;
+		this.endTime = convertEndTime(endTime);
 	}
 
 	public int getEndTime() {
@@ -53,10 +53,21 @@ public class BabySitter {
 
 		if(startTime < 13 && startTime > 4){
 			startTime = startTime + 12;
-		}else{
+		}else if(startTime > 0 && startTime < 5){
 			startTime = startTime + 24;
+		}else{
+			return startTime;
 		}
 		return startTime;
 	}
 
+	public int convertEndTime(int endTime){
+		
+		if(endTime < 13 && endTime > 4){
+			endTime = endTime + 12;
+		}else{
+			endTime = endTime + 24;
+		}
+		return endTime;
+	}
 }
