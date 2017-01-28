@@ -43,7 +43,7 @@ public class BabySitterTest {
 	@Test
 	public void payRateIsEstablished(){
 		long actual = (long) babySitter.payRate();
-		Assert.assertEquals(8, actual);
+		Assert.assertEquals((babySitter.getEndTime()-babySitter.getStartTime()-1)*8, actual);
 	}
 
 }

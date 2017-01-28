@@ -16,7 +16,6 @@ public class BabySitter {
 	}
 
 	public int getStartTime() {
-		System.out.println(startTime);
 		return startTime;
 	}
 	
@@ -26,7 +25,6 @@ public class BabySitter {
 	}
 
 	public int getEndTime() {
-		System.out.println(endTime);
 		return endTime;
 	}
 
@@ -83,15 +81,15 @@ public class BabySitter {
 
 	public int payRate() {
 
-		int currentHour = getStartTime();
 		int startTimeToBedTimeHours = 0;
 		
+		for(int currentHour = getStartTime(); currentHour <= getEndTime(); currentHour++){
 		//fix if statement. program is bypassing
 		//maybe add user prompts
 			if(currentHour >= getStartTimeLimit() && currentHour <= getBedTime()){
 			startTimeToBedTimeHours++;
 		}
-		
+		}
 		System.out.println(startTimeToBedTimeHours);	
 		return startTimeToBedTimeHours * 8;
 	}
