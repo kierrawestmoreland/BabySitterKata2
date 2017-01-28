@@ -41,5 +41,11 @@ public class BabySitterTest {
 		int startTimeTest = babySitter.getStartTime();
 		Assert.assertTrue(startTimeTest == 18);
 	}
+	
+	@Test
+	public void payRateIsEstablished(){
+		long actual = (long) babySitter.payRate();
+		Assert.assertEquals(8, actual);
+	}
 
 }

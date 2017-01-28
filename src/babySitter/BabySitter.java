@@ -4,6 +4,7 @@ public class BabySitter {
 
 	private int endTime;
 	private int startTime;
+	private int bedTime;
 	
 	public void setStartTime(int startTime) {
 		this.startTime = convertStartTime(startTime);
@@ -26,6 +27,14 @@ public class BabySitter {
 		return endTime;
 	}
 
+	public void setBedTime(int bedTime) {
+		this.bedTime = convertEndTime(bedTime);
+	}
+
+	public int getBedTime() {
+		return bedTime;
+	}
+	
 	public int getEndTimeLimit() {
 		int endTimeLimit = 28;
 		return endTimeLimit;
@@ -69,5 +78,29 @@ public class BabySitter {
 			endTime = endTime + 24;
 		}
 		return endTime;
+	}
+	
+	public int convertBedTime(int bedTime){
+		
+		if(bedTime < 13 && bedTime > 4){
+			bedTime = bedTime + 12;
+		}else{
+			bedTime = bedTime + 24;
+		}
+		return bedTime;
+	}
+
+	public int payRate() {
+
+		//setStartTime(6);
+		//setEndTime();
+		int currentHour = getStartTime();
+		int startTimeToBedTimeHours = 1;
+		
+			//fix if statement. program is bypassing
+			if(currentHour >= getStartTimeLimit() && currentHour <= getBedTime()){
+			startTimeToBedTimeHours++;
+		}
+		return startTimeToBedTimeHours * 8;
 	}
 }
