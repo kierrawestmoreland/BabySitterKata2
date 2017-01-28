@@ -11,17 +11,19 @@ public class BabySitterTest {
 	@Before
 	public void setUpForTests(){
 		babySitter = new BabySitter(6, 10, 8);
-		
+		long startToBedPay = (babySitter.getBedTime()-babySitter.getStartTime()-1)*12;
+		long bedToMidnightPay = (24-babySitter.getBedTime()-1)*8;
+		long midnightToEndPay = (babySitter.getEndTime()-24-1)*16;
 	}
 	
 	@Test
 	public void startNoEarlierThan5pm(){
-		Assert.assertTrue(babySitter.getStartTime() >= babySitter.getStartTimeLimit());
+		Assert.assertTrue(babySitter.getStartTime() >= 17);
 	}
 	
 	@Test
 	public void endNoLaterThan4am(){
-		Assert.assertTrue(babySitter.getEndTime() <= babySitter.getEndTimeLimit());
+		Assert.assertTrue(babySitter.getEndTime() <= 28);
 	}
 	
 	@Test
@@ -43,7 +45,19 @@ public class BabySitterTest {
 	@Test
 	public void payRateIsEstablished(){
 		long actual = (long) babySitter.payRate();
-		Assert.assertEquals((babySitter.getEndTime()-babySitter.getStartTime()-1)*8, actual);
+		long startToBedPay = (babySitter.getBedTime()-babySitter.getStartTime())*12;
+		long bedToMidnightPay = (babySitter.getEndTime()-babySitter.getBedTime())*8;
+		Assert.assertEquals(startToBedPay+bedToMidnightPay, actual);
 	}
 
+	@Test
+	public void payRateTestForMultipleRates(){
+		babySitter = new BabySitter(6, 1, 10);
+		long actual = (long) babySitter.payRate();
+		long startToBedPay = (babySitter.getBedTime()-babySitter.getStartTime())*12;
+		long bedToMidnightPay = (24-babySitter.getBedTime())*8;
+		long midnightToEndPay = (babySitter.getEndTime()-24)*16;
+		//pay for midnight-end rate
+		Assert.assertEquals(startToBedPay+bedToMidnightPay+midnightToEndPay , actual);
+	}
 }

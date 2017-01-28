@@ -5,6 +5,8 @@ public class BabySitter {
 	private int endTime;
 	private int startTime;
 	private int bedTime;
+	private int startTimeLimit = 17;
+	private int endTimeLimit = 28;
 	
 	public BabySitter(int startTime, int endTime, int bedTime) {		
 		
@@ -18,11 +20,6 @@ public class BabySitter {
 	public int getStartTime() {
 		return startTime;
 	}
-	
-	public int getStartTimeLimit(){
-		int startTimeLimit = 17;
-		return startTimeLimit;
-	}
 
 	public int getEndTime() {
 		return endTime;
@@ -30,11 +27,6 @@ public class BabySitter {
 
 	public int getBedTime() {
 		return bedTime;
-	}
-	
-	public int getEndTimeLimit() {
-		int endTimeLimit = 28;
-		return endTimeLimit;
 	}
 
 	public boolean verifyEndAfterStartTime() {
@@ -46,7 +38,7 @@ public class BabySitter {
 	}
 
 	public boolean verifyBabySittingWithinLimits() {
-		if((getStartTime() >= getStartTimeLimit()) && (getEndTime() <= getEndTimeLimit())){
+		if((getStartTime() >= startTimeLimit) && (getEndTime() <= endTimeLimit)){
 			System.out.println("I can work those hours.");
 			return true;
 		}else{
@@ -82,15 +74,22 @@ public class BabySitter {
 	public int payRate() {
 
 		int startTimeToBedTimeHours = 0;
+		int bedTimeToMidnightHours = 0;
+		int midnightToEndTimeLimitHours = 0;
 		
-		for(int currentHour = getStartTime(); currentHour <= getEndTime(); currentHour++){
-		//fix if statement. program is bypassing
-		//maybe add user prompts
-			if(currentHour >= getStartTimeLimit() && currentHour <= getBedTime()){
-			startTimeToBedTimeHours++;
+		for(int currentHour = getStartTime(); currentHour < getEndTime(); currentHour++){
+		
+			if(currentHour >= 17 && currentHour < getBedTime()){
+				startTimeToBedTimeHours++;
+				}
+			if(currentHour >= getBedTime() && currentHour < 24){
+				bedTimeToMidnightHours++;
+				}
+			if(currentHour >= 24 && currentHour < endTimeLimit){
+				midnightToEndTimeLimitHours++;
+				}
 		}
-		}
-		System.out.println(startTimeToBedTimeHours);	
-		return startTimeToBedTimeHours * 8;
+		System.out.println(startTimeToBedTimeHours + " " + bedTimeToMidnightHours + " " + midnightToEndTimeLimitHours);	
+		return startTimeToBedTimeHours * 12 + bedTimeToMidnightHours * 8 + midnightToEndTimeLimitHours *16;
 	}
 }
