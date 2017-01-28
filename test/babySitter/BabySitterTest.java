@@ -10,9 +10,8 @@ public class BabySitterTest {
 	
 	@Before
 	public void setUpForTests(){
-		babySitter = new BabySitter();
-		babySitter.setStartTime(6);
-		babySitter.setEndTime(12);
+		babySitter = new BabySitter(6, 10, 8);
+		
 	}
 	
 	@Test
@@ -37,7 +36,6 @@ public class BabySitterTest {
 	
 	@Test
 	public void enteredTimeIsConverted(){
-		babySitter.setStartTime(6);
 		int startTimeTest = babySitter.getStartTime();
 		Assert.assertTrue(startTimeTest == 18);
 	}

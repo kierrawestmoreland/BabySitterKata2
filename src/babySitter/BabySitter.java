@@ -6,11 +6,17 @@ public class BabySitter {
 	private int startTime;
 	private int bedTime;
 	
-	public void setStartTime(int startTime) {
-		this.startTime = convertStartTime(startTime);
+	public BabySitter(int startTime, int endTime, int bedTime) {		
+		
+		this.endTime = endTime;
+		this.startTime = startTime;
+		this.bedTime = bedTime;
+		
+		convertTime();
 	}
 
 	public int getStartTime() {
+		System.out.println(startTime);
 		return startTime;
 	}
 	
@@ -19,16 +25,9 @@ public class BabySitter {
 		return startTimeLimit;
 	}
 
-	public void setEndTime(int endTime) {
-		this.endTime = convertEndTime(endTime);
-	}
-
 	public int getEndTime() {
+		System.out.println(endTime);
 		return endTime;
-	}
-
-	public void setBedTime(int bedTime) {
-		this.bedTime = convertEndTime(bedTime);
 	}
 
 	public int getBedTime() {
@@ -58,49 +57,42 @@ public class BabySitter {
 		}
 	}
 	
-	public int convertStartTime(int startTime){
+	public void convertTime(){
 
 		if(startTime < 13 && startTime > 4){
 			startTime = startTime + 12;
 		}else if(startTime > 0 && startTime < 5){
 			startTime = startTime + 24;
 		}else{
-			return startTime;
 		}
-		return startTime;
-	}
-
-	public int convertEndTime(int endTime){
 		
 		if(endTime < 13 && endTime > 4){
 			endTime = endTime + 12;
-		}else{
+		}else if(endTime > 0 && endTime < 5){
 			endTime = endTime + 24;
+		}else{
 		}
-		return endTime;
-	}
-	
-	public int convertBedTime(int bedTime){
 		
 		if(bedTime < 13 && bedTime > 4){
 			bedTime = bedTime + 12;
-		}else{
+		}else if(bedTime > 0 && bedTime < 5){
 			bedTime = bedTime + 24;
+		}else{
 		}
-		return bedTime;
 	}
 
 	public int payRate() {
 
-		//setStartTime(6);
-		//setEndTime();
 		int currentHour = getStartTime();
-		int startTimeToBedTimeHours = 1;
+		int startTimeToBedTimeHours = 0;
 		
-			//fix if statement. program is bypassing
+		//fix if statement. program is bypassing
+		//maybe add user prompts
 			if(currentHour >= getStartTimeLimit() && currentHour <= getBedTime()){
 			startTimeToBedTimeHours++;
 		}
+		
+		System.out.println(startTimeToBedTimeHours);	
 		return startTimeToBedTimeHours * 8;
 	}
 }
