@@ -8,6 +8,12 @@ public class BabySitter {
 	private int startTimeLimit = 17;
 	private int endTimeLimit = 28;
 	
+	public static void main(String[] args) {
+		BabySitter babysitter = new BabySitter(7, 2, 12);
+		babysitter.printTotal();
+		
+	}
+	
 	public BabySitter(int startTime, int endTime, int bedTime) {		
 		
 		this.endTime = endTime;
@@ -75,21 +81,35 @@ public class BabySitter {
 
 		int startTimeToBedTimeHours = 0;
 		int bedTimeToMidnightHours = 0;
-		int midnightToEndTimeLimitHours = 0;
+		int midnightToEndTimeHours = 0;
+		int bedTimeToEndTimeHours = 0; 
 		
 		for(int currentHour = getStartTime(); currentHour < getEndTime(); currentHour++){
 		
 			if(currentHour >= 17 && currentHour < getBedTime()){
 				startTimeToBedTimeHours++;
 				}
-			if(currentHour >= getBedTime() && currentHour < 24){
-				bedTimeToMidnightHours++;
+			
+			if(currentHour >= getBedTime()){
+				if(getBedTime() >= 24 && getBedTime() < getEndTime()){
+					bedTimeToEndTimeHours++;
+			}
+			else{
+				if(currentHour >= getBedTime() && currentHour < 24){
+					bedTimeToMidnightHours++;
+					}
+				if(currentHour >= 24 && currentHour < getEndTime()){
+					midnightToEndTimeHours++;
 				}
-			if(currentHour >= 24 && currentHour < endTimeLimit){
-				midnightToEndTimeLimitHours++;
-				}
+			
 		}
-		System.out.println(startTimeToBedTimeHours + " " + bedTimeToMidnightHours + " " + midnightToEndTimeLimitHours);	
-		return startTimeToBedTimeHours * 12 + bedTimeToMidnightHours * 8 + midnightToEndTimeLimitHours *16;
+			}
+			}
+		System.out.println(startTimeToBedTimeHours + " " + bedTimeToMidnightHours + " " + midnightToEndTimeHours + " " + bedTimeToEndTimeHours);	
+		return startTimeToBedTimeHours * 12 + bedTimeToMidnightHours * 8 + midnightToEndTimeHours *16 + bedTimeToEndTimeHours * 8;
+	}
+	public void printTotal(){
+		System.out.println("I made $" + payRate() + " tonight.");
 	}
 }
+	
