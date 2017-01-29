@@ -41,4 +41,4 @@ I'll then add that method to the constructor so that the times are converted as 
 
 After setting up the ability to enter a time in for bedtime along with start time, I am going to add a condition if the bedtime was after midnight and therefore the midngiht to endtime range would be changed to the bedtime rate of $8.
 
-Once all the conditions and tests are ran and created, I wanted to print out how much the babysitter made for the night. 
+Once all the conditions and tests are created and ran, I want to print out how much the babysitter made for the night. 
