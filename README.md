@@ -26,7 +26,7 @@ If I go ahead and use military time, after 12am, I would keep counting past 24 s
 Whatever time is entered needs to be converted to the format I mentioned above, incase the time isn't entered in the military time format.
 
 Getting my fourth and fifth tests to pass (again) after adding in the convert and verification was tricky. 
-This was due to not updating my @Before values when setting the babysitting start and end times. 
+This was due to not updating my @Before babysitter object values when setting the babysitting start and end times. 
 
 Next I will set up the pay rates based on the current hour. From the directions I will have 3 pay rates.
 I will have a pay rate from start time to bedtime, bedtime to midnight, and midnight to end time.
