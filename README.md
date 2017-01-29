@@ -39,4 +39,6 @@ Since there isn't a specific time for the bedtime, I decided to need to create a
 Since I'll have multiple setters, I will make a constructor method for the babysitter's start and end times along with bedtime as the parameters. I'll also combine the convert time methods into one since the calculation is the same for start, end, and bedtime.
 I'll then add that method to the constructor so that the times are converted as they are being initialized.
 
-After setting up the ability to enter a time in for bedtime along with start time, I am going to add scenaios for whatever pay rate the current hour is for each iteration of the for loop using an if else statement. 
+After setting up the ability to enter a time in for bedtime along with start time, I am going to add a condition if the bedtime was after midnight and therefore the midngiht to endtime range would be changed to the bedtime rate of $8.
+
+Once all the conditions and tests are ran and created, I wanted to print out how much the babysitter made for the night. 
