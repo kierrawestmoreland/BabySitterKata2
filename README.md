@@ -51,5 +51,5 @@ Once all the conditions and tests are created and ran, I want to print out how m
 ###Output
 
 The babysitter will share how much they made at the end of their shift. 
-To help validate the correct hours, I printed out the hours for each rate based on the times entered in the construtor. 
+To help validate the correct hours, I printed out the number of hours for each rate based on the times entered in the construtor. 
 The hours are (startTimeToBedTime, bedTimeToMidnight, midnightToEndTime, bedTimeToEndTime).
