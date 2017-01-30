@@ -9,7 +9,7 @@ public class BabySitter {
 	private int endTimeLimit = 28;
 	
 	public static void main(String[] args) {
-		BabySitter babysitter = new BabySitter(7, 2, 12);
+		BabySitter babysitter = new BabySitter(10, 4, 2);
 		babysitter.printTotal();
 		
 	}

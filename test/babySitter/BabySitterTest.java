@@ -8,13 +8,10 @@ public class BabySitterTest {
 
 	private BabySitter babySitter;
 	
-	
 	@Before
 	public void setUpForTests(){
 		babySitter = new BabySitter(6, 10, 8);
-		long startToBedPay = (babySitter.getBedTime()-babySitter.getStartTime()-1)*12;
-		long bedToMidnightPay = (24-babySitter.getBedTime()-1)*8;
-		long midnightToEndPay = (babySitter.getEndTime()-24-1)*16;
+	
 	}
 	
 	@Test
