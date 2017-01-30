@@ -9,7 +9,7 @@ public class BabySitter {
 	private int endTimeLimit = 28;
 	
 	public static void main(String[] args) {
-		BabySitter babysitter = new BabySitter(10, 4, 2);
+		BabySitter babysitter = new BabySitter(8, 4, 2);
 		babysitter.printTotal();
 		
 	}
@@ -101,7 +101,6 @@ public class BabySitter {
 				if(currentHour >= 24 && currentHour < getEndTime()){
 					midnightToEndTimeHours++;
 				}
-			
 		}
 			}
 			}
