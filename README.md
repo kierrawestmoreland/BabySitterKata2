@@ -12,6 +12,13 @@ This kata simulates a babysitter working and getting paid for one night. The rul
 - [x] gets paid for full hours (no fractional hours)
 - [x] Feature: As a babysitter In order to get paid for 1 night of work I want to calculate my nightly charge
 
+### Instructions to Run:
+1. Clone repository https://github.com/kierrawestmoreland/BabySitterKata2
+2. Open git bash or command prompt
+3. Run ./gradle build
+4. Run gradle test
+5. Have fun
+
 ### My Thought Process:
 
 By solving this kata, I tried to focus on one piece at a time. 
@@ -40,3 +47,9 @@ I'll then add that method to the constructor so that the times are converted as 
 After setting up the ability to enter a time in for bedtime along with start time, I am going to add a condition if the bedtime was after midnight and therefore the midngiht to endtime range would be changed to the bedtime rate of $8.
 
 Once all the conditions and tests are created and ran, I want to print out how much the babysitter made for the night. 
+
+###Output
+
+The babysitter will share how much they made at the end of their shift. 
+To help validate the correct hours, I printed out the number of hours for each rate based on the times entered in the construtor. 
+The hours are (startTimeToBedTime, bedTimeToMidnight, midnightToEndTime, bedTimeToEndTime).
